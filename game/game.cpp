@@ -119,7 +119,7 @@ int main()
 // then return the character
 
 char getAction() {
-    char action;
+    char action{};
 
     while ((action != 'f') && (action != 'b')) {
         cout << "\nWould you like to fight or bribe?\n";
