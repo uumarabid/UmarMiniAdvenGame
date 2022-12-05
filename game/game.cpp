@@ -67,7 +67,7 @@ string Room::getDescription() {
     return this->description;
 }
 
-
+const int numOfRooms;
 
 int main()
 {
@@ -75,6 +75,9 @@ int main()
 
     //create a pointer to player object
     Player *myPlayer;
+
+    //create a dynamic pointer array with pointers to room objects
+    Room* world[numOfRooms] = { new Room("Blue Room"), new Room("Green Room"), new Room("Red Room") };
     
 }
 
