@@ -8,7 +8,7 @@ using namespace std;
 // class
 class Player {
 private:
-    int loacation;
+    int location;
     string name;
     int numRooms;
 public:
@@ -19,6 +19,13 @@ public:
 
 
 };
+
+//constructor body 
+Player::Player(string name, int numRooms) {
+    this->name = name;
+    this->numRooms = numRooms;
+    location = 0;
+}
 
 int main()
 {
