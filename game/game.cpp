@@ -88,6 +88,18 @@ int main()
     // testing player movement
     cout << "Before moving. The location is: ";
     cout << world[myPlayer->getLoc()]->getDescription() << endl;
+
+    cout << "Move " << myPlayer->getName() << " Right" << endl;
+    myPlayer->moveRight();
+
+    cout << "After moving right. The location is: ";
+    cout << world[myPlayer->getLoc()]->getDescription() << endl;
+
+    cout << "Move " << myPlayer->getName() << " Right again" << endl;
+    myPlayer->moveRight();
+
+    cout << "After moving right. The location is: ";
+    cout << world[myPlayer->getLoc()]->getDescription() << endl;
     
 }
 
