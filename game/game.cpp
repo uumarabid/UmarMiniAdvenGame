@@ -29,7 +29,7 @@ Player::Player(string name, int numRooms) {
 
 string Player::getName()
 {
-    return string();
+    return this->name;
 }
 
 void Player::moveLeft() {
@@ -78,6 +78,12 @@ int main()
 
     //create a dynamic pointer array with pointers to room objects
     Room* world[numOfRooms] = { new Room("Blue Room"), new Room("Green Room"), new Room("Red Room") };
+
+    //point myPlayer to new player
+    myPlayer = new Player("Umar", numOfRooms);
+
+    // test
+    cout << myPlayer->getName();
     
 }
 
