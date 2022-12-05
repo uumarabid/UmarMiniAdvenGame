@@ -71,7 +71,11 @@ string Room::getDescription() {
 
 int main()
 {
-    cout << "Hello World!\n";
+    cout << "Hello and welcome!\n";
+
+    //create a pointer to player object
+    Player *myPlayer;
+    
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
