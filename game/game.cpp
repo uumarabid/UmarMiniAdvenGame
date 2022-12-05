@@ -58,6 +58,17 @@ public:
     string getDescription();
 };
 
+//constructor body
+Room::Room(string description) {
+    this->description = description;
+}
+
+string Room::getDescription() {
+    return this->description;
+}
+
+
+
 int main()
 {
     cout << "Hello World!\n";
