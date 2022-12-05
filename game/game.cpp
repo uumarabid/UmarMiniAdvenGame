@@ -67,7 +67,7 @@ string Room::getDescription() {
     return this->description;
 }
 
-const int numOfRooms;
+const int numOfRooms = 3;
 
 int main()
 {
