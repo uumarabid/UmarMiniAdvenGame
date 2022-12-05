@@ -2,13 +2,22 @@
 //
 
 #include <iostream>
+#include<string>
 using namespace std;
 
+// class
 class Player {
 private:
     int loacation;
     string name;
     int numRooms;
+public:
+    // declaring constructor 
+    Player(string name, int numRooms);
+    string getName();
+    int getLoc();
+
+
 };
 
 int main()
