@@ -83,7 +83,11 @@ int main()
     myPlayer = new Player("Umar", numOfRooms);
 
     // test
-    cout << myPlayer->getName();
+    cout << myPlayer->getName()<<endl;
+
+    // testing player movement
+    cout << "Before moving. The location is: ";
+    cout << world[myPlayer->getLoc()]->getDescription() << endl;
     
 }
 
