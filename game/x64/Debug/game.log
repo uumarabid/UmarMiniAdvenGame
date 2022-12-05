@@ -1,2 +1,2 @@
 ﻿  game.cpp
-  game.vcxproj -> C:\Users\star_\Documents\GitHub\UmarMiniAdvenGame\game\x64\Debug\game.exe
+C:\Users\star_\Documents\GitHub\UmarMiniAdvenGame\game\game.cpp(124): error C4700: uninitialized local variable 'action' used
