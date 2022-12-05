@@ -16,8 +16,8 @@ public:
     Player(string name, int numRooms);
     string getName();
     int getLoc();
-
-
+    void moveRight();
+    void moveLeft();
 };
 
 //constructor body 
@@ -25,6 +25,27 @@ Player::Player(string name, int numRooms) {
     this->name = name;
     this->numRooms = numRooms;
     location = 0;
+}
+
+string Player::getName()
+{
+    return string();
+}
+
+void Player::moveLeft() {
+    if (location > 0) {
+        location--;
+   }
+}
+
+void Player::moveRight() {
+    if (location < numRooms) {
+        location++;
+    }
+}
+
+int Player::getLoc() {
+    return location;
 }
 
 int main()
