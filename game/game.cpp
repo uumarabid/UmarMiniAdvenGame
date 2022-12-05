@@ -48,6 +48,16 @@ int Player::getLoc() {
     return location;
 }
 
+// room class
+class Room {
+private:
+    string description;
+public:
+    //constructor
+    Room(string description);
+    string getDescription();
+};
+
 int main()
 {
     cout << "Hello World!\n";
