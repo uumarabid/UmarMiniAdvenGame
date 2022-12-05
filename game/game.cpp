@@ -4,6 +4,13 @@
 #include <iostream>
 using namespace std;
 
+class Player {
+private:
+    int loacation;
+    string name;
+    int numRooms;
+};
+
 int main()
 {
     cout << "Hello World!\n";
