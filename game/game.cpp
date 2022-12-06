@@ -76,12 +76,16 @@ int main()
 
     //create a pointer to player object
     Player *myPlayer;
+    string playerName;
+
+    cout << "Please enter your name: ";
+    cin >> playerName;
 
     //create a dynamic pointer array with pointers to room objects
     Room* world[numOfRooms] = { new Room("Blue Room"), new Room("Green Room"), new Room("Red Room") };
 
     //point myPlayer to new player
-    myPlayer = new Player("Umar", numOfRooms);
+    myPlayer = new Player(playerName, numOfRooms);
 
     // test
     cout << myPlayer->getName()<<endl;
