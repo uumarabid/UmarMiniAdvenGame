@@ -84,22 +84,30 @@ bool Room::getDragon() {
 	return this->dragon;
 }
 
+class Dragon {
+private:
+	int dragonLife;
+public:
+	//constructor
+	Dragon();
+	int getDragonLife();
+
+};
+
+//constructor body
+Dragon::Dragon() {
+	//this->playerLife = playerLife;
+	int range = 10 - 1 + 1;
+	this->dragonLife = rand() % range + 1;
+}
+
+int Dragon::getDragonLife() {
+	return this->dragonLife;
+}
+
 const int numOfRooms = 4;
 char getAction();
 
-//void moveToNextRoom(Player myPlayer) {
-//	cout << "Move " << myPlayer.getName() << " Right" << endl;
-//	myPlayer->moveRight();
-//	if (world[myPlayer->getLoc()]->getDragon()) {
-//		myPlayer->reduceLife();
-//	}
-//
-//
-//	cout << "After moving right. The location is: ";
-//	cout << world[myPlayer->getLoc()]->getDescription() << endl;
-//	cout << "Your life is: ";
-//	cout << myPlayer->getLife() << endl;
-//}
 
 int main()
 {
@@ -163,11 +171,28 @@ int main()
 	cout << "Your life is: ";
 	cout << myPlayer->getLife() << endl;
 
+
 	// call a function to get input from a player
 	char action = getAction();
 
 	if (action == 'f') {
-		cout << "You are fighting and win against dragon\n";
+		cout << "\nYou are fighting the dragon";
+		Dragon* boss = new Dragon();
+		
+		cout << "\nDragon's life: " << boss->getDragonLife();
+
+		cout << "\nPlayer's life:" << myPlayer->getLife();
+
+		if (boss->getDragonLife() > myPlayer->getLife()) {
+			cout << "\nDragon Won";
+		}
+		else if (boss->getDragonLife() == myPlayer->getLife()) {
+			cout << "\nMatch withdraw";
+		}
+		else {
+			cout << "\nPlayer Won";
+		}
+		
 	}
 
 	if (action == 'b') {
