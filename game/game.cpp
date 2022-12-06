@@ -8,131 +8,188 @@ using namespace std;
 // class
 class Player {
 private:
-    int location;
-    string name;
-    int numRooms;
+	int location;
+	string name;
+	int startLife = 10;
+	int numRooms;
 public:
-    // declaring constructor 
-    Player(string name, int numRooms);
-    string getName();
-    int getLoc();
-    void moveRight();
-    void moveLeft();
+	// declaring constructor 
+	Player(string name, int numRooms);
+	string getName();
+	int getLoc();
+	int getLife();
+	void moveRight();
+	void moveLeft();
+	void reduceLife();
 };
 
 //constructor body 
 Player::Player(string name, int numRooms) {
-    this->name = name;
-    this->numRooms = numRooms;
-    location = 0;
+	this->name = name;
+	this->numRooms = numRooms;
+	location = 0;
 }
 
 string Player::getName()
 {
-    return this->name;
+	return this->name;
 }
 
 void Player::moveLeft() {
-    if (location > 0) {
-        location--;
-   }
+	if (location > 0) {
+		location--;
+	}
 }
 
 void Player::moveRight() {
-    if (location < numRooms) {
-        location++;
-    }
+	if (location < numRooms) {
+		location++;
+	}
 }
 
 int Player::getLoc() {
-    return location;
+	return location;
+}
+
+int Player::getLife() {
+	return startLife;
+}
+
+void Player::reduceLife() {
+	startLife--;
 }
 
 // room class
 class Room {
 private:
-    string description;
+	string description;
+	bool dragon;
 public:
-    //constructor
-    Room(string description);
-    string getDescription();
+	//constructor
+	Room(string description, bool dragon);
+	string getDescription();
+	bool getDragon();
 };
 
 //constructor body
-Room::Room(string description) {
-    this->description = description;
+Room::Room(string description, bool dragon) {
+	this->description = description;
+	this->dragon = dragon;
 }
 
 string Room::getDescription() {
-    return this->description;
+	return this->description;
+}
+bool Room::getDragon() {
+	return this->dragon;
 }
 
-const int numOfRooms = 3;
+const int numOfRooms = 4;
 char getAction();
+
+//void moveToNextRoom(Player myPlayer) {
+//	cout << "Move " << myPlayer.getName() << " Right" << endl;
+//	myPlayer->moveRight();
+//	if (world[myPlayer->getLoc()]->getDragon()) {
+//		myPlayer->reduceLife();
+//	}
+//
+//
+//	cout << "After moving right. The location is: ";
+//	cout << world[myPlayer->getLoc()]->getDescription() << endl;
+//	cout << "Your life is: ";
+//	cout << myPlayer->getLife() << endl;
+//}
 
 int main()
 {
-    cout << "Hello and welcome!\n";
+	cout << "Hello and welcome!\n";
 
-    //create a pointer to player object
-    Player *myPlayer;
-    string playerName;
+	//create a pointer to player object
+	Player* myPlayer;
+	string playerName;
 
-    cout << "Please enter your name: ";
-    cin >> playerName;
+	cout << "Please enter your name: ";
+	cin >> playerName;
 
-    //create a dynamic pointer array with pointers to room objects
-    Room* world[numOfRooms] = { new Room("Blue Room"), new Room("Green Room"), new Room("Red Room") };
+	//create a dynamic pointer array with pointers to room objects
+	Room* world[numOfRooms] = { new Room("Blue Room", false), new Room("Green Room",false), new Room("Yellow Room", true), new Room("Red Room", false) };
 
-    //point myPlayer to new player
-    myPlayer = new Player(playerName, numOfRooms);
+	//point myPlayer to new player
+	myPlayer = new Player(playerName, numOfRooms);
 
-    // test
-    cout << myPlayer->getName()<<endl;
+	// test
+	cout << myPlayer->getName() << endl;
 
-    // testing player movement
-    cout << "Before moving. The location is: ";
-    cout << world[myPlayer->getLoc()]->getDescription() << endl;
+	// testing player movement
+	cout << "Before moving. The location is: ";
+	cout << world[myPlayer->getLoc()]->getDescription() << endl;
 
-    cout << "Move " << myPlayer->getName() << " Right" << endl;
-    myPlayer->moveRight();
+	cout << "Move " << myPlayer->getName() << " Right" << endl;
+	myPlayer->moveRight();
+	if (world[myPlayer->getLoc()]->getDragon()) {
+		myPlayer->reduceLife();
+	}
 
-    cout << "After moving right. The location is: ";
-    cout << world[myPlayer->getLoc()]->getDescription() << endl;
 
-    cout << "Move " << myPlayer->getName() << " Right again" << endl;
-    myPlayer->moveRight();
+	cout << "After moving right. The location is: ";
+	cout << world[myPlayer->getLoc()]->getDescription() << endl;
+	cout << "Your life is: ";
+	cout << myPlayer->getLife() << endl;
 
-    cout << "After moving right. The location is: ";
-    cout << world[myPlayer->getLoc()]->getDescription() << endl;
+	cout << "Move " << myPlayer->getName() << " Right again" << endl;
+	myPlayer->moveRight();
+	if (world[myPlayer->getLoc()]->getDragon()) {
+		myPlayer->getLife();
+	}
 
-    // call a function to get input from a player
-    char action = getAction();
+	cout << "After moving right. The location is: ";
+	cout << world[myPlayer->getLoc()]->getDescription() << endl;
+	cout << "Your life is: ";
+	cout << myPlayer->getLife() << endl;
 
-    if (action == 'f') {
-        cout << "You are fighting\n";
-    }
+	if (world[myPlayer->getLoc()]->getDragon()) {
+		myPlayer->reduceLife();
+	}
 
-    if (action == 'b') {
-        cout << "You are bribing\n";
-    }
-    
+	cout << "Move " << myPlayer->getName() << " Right again" << endl;
+	myPlayer->moveRight();
+	if (world[myPlayer->getLoc()]->getDragon()) {
+		myPlayer->reduceLife();
+	}
+
+	cout << "After moving right. The location is: ";
+	cout << world[myPlayer->getLoc()]->getDescription() << endl;
+	cout << "Your life is: ";
+	cout << myPlayer->getLife() << endl;
+
+	// call a function to get input from a player
+	char action = getAction();
+
+	if (action == 'f') {
+		cout << "You are fighting and win against dragon\n";
+	}
+
+	if (action == 'b') {
+		cout << "You are bribing, dragon wins\n";
+	}
+
 }
 
 // keep looping until we get a b or a f from the player
 // then return the character
 
 char getAction() {
-    char action{};
+	char action{};
 
-    while ((action != 'f') && (action != 'b')) {
-        cout << "\nWould you like to fight or bribe?\n";
-        cout << "To fight enter 'f'\n";
-        cout << "To bribe enter 'b'\n";
-        cin >> action;
-    }
+	while ((action != 'f') && (action != 'b')) {
+		cout << "\nWould you like to fight or bribe?\n";
+		cout << "To fight enter 'f'\n";
+		cout << "To bribe enter 'b'\n";
+		cin >> action;
+	}
 
-    return action;
+	return action;
 
 }
 
