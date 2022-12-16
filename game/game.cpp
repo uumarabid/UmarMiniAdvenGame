@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include<string>
+#include "color.h"
 #include "Player.h"
 #include "Dragon.h"
 #include "Room.h"
