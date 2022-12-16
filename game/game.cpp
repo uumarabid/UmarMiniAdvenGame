@@ -10,8 +10,6 @@
 using namespace std;
 
 
-
-
 const int numOfRooms = 5;
 char getAction();
 
@@ -46,23 +44,7 @@ int main()
 	char action = getAction();
 
 	if (action == 'f') {
-		cout << "\nYou are fighting the dragon";
-		Dragon* boss = new Dragon();
-
-		cout << "\nDragon's life: " << boss->getDragonLife();
-
-		cout << "\nPlayer's life:" << myPlayer->getLife();
-
-		if (boss->getDragonLife() > myPlayer->getLife()) {
-			cout << "\nDragon Won";
-		}
-		else if (boss->getDragonLife() == myPlayer->getLife()) {
-			cout << "\nMatch withdraw";
-		}
-		else {
-			cout << "\nPlayer Won";
-		}
-
+		Dragon* boss = new Dragon(myPlayer);
 	}
 
 	if (action == 'b') {
