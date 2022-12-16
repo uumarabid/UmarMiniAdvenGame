@@ -16,6 +16,7 @@ public:
 	Player(int numRooms);
 	string getName();
 	int getLoc();
+	void displayLife();
 	int getLife();
 	void moveRight();
 	void moveLeft();
@@ -52,6 +53,10 @@ void Player::moveRight() {
 
 int Player::getLoc() {
 	return location;
+}
+
+void Player::displayLife() {
+	cout << "Player's life is: " << startLife << "\n\n";
 }
 
 int Player::getLife() {

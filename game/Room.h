@@ -11,7 +11,7 @@ private:
 public:
 	//constructor
 	Room(string description, bool dragon);
-	string getDescription();
+	void getDescription();
 	bool getDragon();
 };
 
@@ -21,9 +21,11 @@ Room::Room(string description, bool dragon) {
 	this->dragon = dragon;
 }
 
-string Room::getDescription() {
-	return this->description;
+//remove this later
+void Room::getDescription() {
+	cout << "Location: " << this->description << "\n";
 }
+
 bool Room::getDragon() {
 	return this->dragon;
 }

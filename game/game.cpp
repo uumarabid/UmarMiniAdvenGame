@@ -23,7 +23,12 @@ int main()
 	Player* myPlayer;
 
 	//create a dynamic pointer array with pointers to room objects
-	Room* world[numOfRooms] = { new Room("Blue Room", false), new Room("Green Room",false), new Room("Yellow Room", true), new Room("Red Room", false) };
+	Room* world[numOfRooms] = {
+		new Room("Blue Room", false),
+		new Room("Green Room",false),
+		new Room("Yellow Room", true),
+		new Room("Red Room", false)
+	};
 
 	//point myPlayer to new player
 	myPlayer = new Player(numOfRooms);
@@ -31,8 +36,10 @@ int main()
 	cout << myPlayer->getName() << endl;
 
 	// testing player movement
-	cout << "Before moving. The location is: ";
-	cout << world[myPlayer->getLoc()]->getDescription() << endl;
+	//cout << "Before moving. The location is: ";
+	//cout << world[myPlayer->getLoc()]->getDescription() << endl;
+	world[myPlayer->getLoc()]->getDescription();
+
 
 	cout << "Move " << myPlayer->getName() << " Right" << endl;
 	myPlayer->moveRight();
@@ -41,21 +48,21 @@ int main()
 	}
 
 
-	cout << "After moving right. The location is: ";
-	cout << world[myPlayer->getLoc()]->getDescription() << endl;
-	cout << "Your life is: ";
-	cout << myPlayer->getLife() << endl;
+	//cout << "After moving right. The location is: ";
+	//cout << world[myPlayer->getLoc()]->getDescription() << endl;
+	world[myPlayer->getLoc()]->getDescription();
+	myPlayer->displayLife();
 
 	cout << "Move " << myPlayer->getName() << " Right again" << endl;
 	myPlayer->moveRight();
 	if (world[myPlayer->getLoc()]->getDragon()) {
-		myPlayer->getLife();
+		myPlayer->displayLife();
 	}
 
-	cout << "After moving right. The location is: ";
-	cout << world[myPlayer->getLoc()]->getDescription() << endl;
-	cout << "Your life is: ";
-	cout << myPlayer->getLife() << endl;
+	//cout << "After moving right. The location is: ";
+	//cout << world[myPlayer->getLoc()]->getDescription() << endl;
+	world[myPlayer->getLoc()]->getDescription();
+	myPlayer->displayLife();
 
 	if (world[myPlayer->getLoc()]->getDragon()) {
 		myPlayer->reduceLife();
@@ -67,10 +74,10 @@ int main()
 		myPlayer->reduceLife();
 	}
 
-	cout << "After moving right. The location is: ";
-	cout << world[myPlayer->getLoc()]->getDescription() << endl;
-	cout << "Your life is: ";
-	cout << myPlayer->getLife() << endl;
+	//cout << "After moving right. The location is: ";
+	//cout << world[myPlayer->getLoc()]->getDescription() << endl;
+	world[myPlayer->getLoc()]->getDescription();
+	myPlayer->displayLife();
 
 
 	// call a function to get input from a player
