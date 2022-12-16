@@ -3,111 +3,13 @@
 
 #include <iostream>
 #include<string>
-#include <random>
+#include "Player.h"
+#include "Dragon.h"
+#include "Room.h"
 using namespace std;
 
-// class
-class Player {
-private:
-	int location;
-	string name;
-	int startLife = 10;
-	int numRooms;
-public:
-	// declaring constructor 
-	Player(string name, int numRooms);
-	string getName();
-	int getLoc();
-	int getLife();
-	void moveRight();
-	void moveLeft();
-	void reduceLife();
-};
 
-//constructor body 
-Player::Player(string name, int numRooms) {
-	this->name = name;
-	this->numRooms = numRooms;
-	location = 0;
-}
 
-string Player::getName()
-{
-	return this->name;
-}
-
-void Player::moveLeft() {
-	if (location > 0) {
-		location--;
-	}
-}
-
-void Player::moveRight() {
-	if (location < numRooms) {
-		location++;
-	}
-}
-
-int Player::getLoc() {
-	return location;
-}
-
-int Player::getLife() {
-	return startLife;
-}
-
-void Player::reduceLife() {
-	startLife--;
-}
-
-// room class
-class Room {
-private:
-	string description;
-	bool dragon;
-public:
-	//constructor
-	Room(string description, bool dragon);
-	string getDescription();
-	bool getDragon();
-};
-
-//constructor body
-Room::Room(string description, bool dragon) {
-	this->description = description;
-	this->dragon = dragon;
-}
-
-string Room::getDescription() {
-	return this->description;
-}
-bool Room::getDragon() {
-	return this->dragon;
-}
-
-class Dragon {
-private:
-	int dragonLife;
-public:
-	//constructor
-	Dragon();
-	int getDragonLife();
-
-};
-
-//constructor body
-Dragon::Dragon() {
-	//this->playerLife = playerLife;
-	std::random_device rd; // obtain a random number from hardware
-	std::mt19937 gen(rd()); // seed the generator
-	std::uniform_int_distribution<> distr(1, 10); // define the range
-
-	this->dragonLife = distr(gen);
-}
-
-int Dragon::getDragonLife() {
-	return this->dragonLife;
-}
 
 const int numOfRooms = 4;
 char getAction();
@@ -119,18 +21,13 @@ int main()
 
 	//create a pointer to player object
 	Player* myPlayer;
-	string playerName;
-
-	cout << "Please enter your name: ";
-	cin >> playerName;
 
 	//create a dynamic pointer array with pointers to room objects
 	Room* world[numOfRooms] = { new Room("Blue Room", false), new Room("Green Room",false), new Room("Yellow Room", true), new Room("Red Room", false) };
 
 	//point myPlayer to new player
-	myPlayer = new Player(playerName, numOfRooms);
+	myPlayer = new Player(numOfRooms);
 
-	// test
 	cout << myPlayer->getName() << endl;
 
 	// testing player movement
@@ -182,7 +79,7 @@ int main()
 	if (action == 'f') {
 		cout << "\nYou are fighting the dragon";
 		Dragon* boss = new Dragon();
-		
+
 		cout << "\nDragon's life: " << boss->getDragonLife();
 
 		cout << "\nPlayer's life:" << myPlayer->getLife();
@@ -196,7 +93,7 @@ int main()
 		else {
 			cout << "\nPlayer Won";
 		}
-		
+
 	}
 
 	if (action == 'b') {

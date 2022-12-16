@@ -32,4 +32,5 @@
 *.app
 *.opendb
 
-\game\x64\Debug\*
+game/x64/Debug/*
+game/.vs/game/*
