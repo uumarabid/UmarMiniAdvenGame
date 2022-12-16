@@ -4,7 +4,7 @@
 #include "color.h"
 
 class Dragon {
-private: 
+private:
 	int returnRandomNumber();
 public:
 	int dragonLife;

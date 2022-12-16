@@ -9,11 +9,7 @@
 #include "Room.h"
 using namespace std;
 
-
 const int numOfRooms = 5;
-char getAction();
-
-
 int main()
 {
 	cout << "Hello and welcome!\n";
