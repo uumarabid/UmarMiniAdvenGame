@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include<string>
+#include "color.h"
+
 using namespace std;
 
 // room class
@@ -24,7 +26,7 @@ Room::Room(string description, bool dragon) {
 
 //remove this later
 void Room::getDescription() {
-	cout << "\nLocation: " << this->description << "\n";
+	cout << "\nLocation: " << dye::purple(this->description) << "\n";
 }
 
 bool Room::getDragon() {

@@ -41,34 +41,15 @@ int main()
 	}
 
 	// call a function to get input from a player
-	char action = getAction();
-
-	if (action == 'f') {
-		Dragon* boss = new Dragon(myPlayer);
-	}
-
-	if (action == 'b') {
-		cout << "You are bribing, dragon wins\n";
-	}
+	char action = myPlayer->getAction();
+	Dragon* boss = new Dragon(myPlayer, action);
 
 }
 
 // keep looping until we get a b or a f from the player
 // then return the character
 
-char getAction() {
-	char action{};
 
-	while ((action != 'f') && (action != 'b')) {
-		cout << "\nWould you like to fight or bribe?\n";
-		cout << "To fight enter 'f'\n";
-		cout << "To bribe enter 'b'\n";
-		cin >> action;
-	}
-
-	return action;
-
-}
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu

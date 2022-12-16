@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include<string>
+#include "color.h"
 using namespace std;
 
 // class
@@ -21,6 +22,7 @@ public:
 	void moveRight();
 	void moveLeft();
 	void reduceLife();
+	char getAction();
 };
 
 //constructor body 
@@ -57,7 +59,7 @@ int Player::getLoc() {
 }
 
 void Player::displayLife() {
-	cout << name << " life is: " << startLife << "\n\n";
+	cout << name << " life is: " << dye::green(startLife) << "\n\n";
 }
 
 int Player::getLife() {
@@ -66,4 +68,17 @@ int Player::getLife() {
 
 void Player::reduceLife() {
 	startLife--;
+}
+
+char Player::getAction() {
+	char action{};
+
+	while ((action != 'f') && (action != 'b')) {
+		cout << "\nWould you like to fight or bribe?\n";
+		cout << dye::yellow("To fight enter 'f'\n");
+		cout << dye::aqua("To bribe enter 'b'\n");
+		cin >> action;
+	}
+
+	return action;
 }
