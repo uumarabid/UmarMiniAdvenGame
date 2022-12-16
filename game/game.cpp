@@ -36,8 +36,6 @@ int main()
 	cout << myPlayer->getName() << endl;
 
 	// testing player movement
-	//cout << "Before moving. The location is: ";
-	//cout << world[myPlayer->getLoc()]->getDescription() << endl;
 	world[myPlayer->getLoc()]->getDescription();
 
 
@@ -48,8 +46,6 @@ int main()
 	}
 
 
-	//cout << "After moving right. The location is: ";
-	//cout << world[myPlayer->getLoc()]->getDescription() << endl;
 	world[myPlayer->getLoc()]->getDescription();
 	myPlayer->displayLife();
 
@@ -59,8 +55,6 @@ int main()
 		myPlayer->displayLife();
 	}
 
-	//cout << "After moving right. The location is: ";
-	//cout << world[myPlayer->getLoc()]->getDescription() << endl;
 	world[myPlayer->getLoc()]->getDescription();
 	myPlayer->displayLife();
 
@@ -74,8 +68,6 @@ int main()
 		myPlayer->reduceLife();
 	}
 
-	//cout << "After moving right. The location is: ";
-	//cout << world[myPlayer->getLoc()]->getDescription() << endl;
 	world[myPlayer->getLoc()]->getDescription();
 	myPlayer->displayLife();
 
