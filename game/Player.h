@@ -31,7 +31,7 @@ Player::Player(int numRooms) {
 
 	this->name = name;
 	this->numRooms = numRooms;
-	location = 0;
+	location = -1;
 }
 
 string Player::getName()
@@ -46,6 +46,7 @@ void Player::moveLeft() {
 }
 
 void Player::moveRight() {
+	cout << "Move " << name << " Right" << endl;
 	if (location < numRooms) {
 		location++;
 	}
@@ -56,7 +57,7 @@ int Player::getLoc() {
 }
 
 void Player::displayLife() {
-	cout << "Player's life is: " << startLife << "\n\n";
+	cout << name << " life is: " << startLife << "\n\n";
 }
 
 int Player::getLife() {

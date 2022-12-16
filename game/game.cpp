@@ -11,7 +11,7 @@ using namespace std;
 
 
 
-const int numOfRooms = 4;
+const int numOfRooms = 5;
 char getAction();
 
 
@@ -27,50 +27,19 @@ int main()
 		new Room("Blue Room", false),
 		new Room("Green Room",false),
 		new Room("Yellow Room", true),
-		new Room("Red Room", false)
+		new Room("Red Room", false),
+		new Room("pink Room", false),
 	};
 
 	//point myPlayer to new player
 	myPlayer = new Player(numOfRooms);
 
-	cout << myPlayer->getName() << endl;
-
-	// testing player movement
-	world[myPlayer->getLoc()]->getDescription();
-
-
-	cout << "Move " << myPlayer->getName() << " Right" << endl;
-	myPlayer->moveRight();
-	if (world[myPlayer->getLoc()]->getDragon()) {
-		myPlayer->reduceLife();
-	}
-
-
-	world[myPlayer->getLoc()]->getDescription();
-	myPlayer->displayLife();
-
-	cout << "Move " << myPlayer->getName() << " Right again" << endl;
-	myPlayer->moveRight();
-	if (world[myPlayer->getLoc()]->getDragon()) {
+	for (int i = 0; i < numOfRooms; i++) {
+		myPlayer->moveRight();
+		world[myPlayer->getLoc()]->exploreRoom(myPlayer);
+		world[myPlayer->getLoc()]->getDescription();
 		myPlayer->displayLife();
 	}
-
-	world[myPlayer->getLoc()]->getDescription();
-	myPlayer->displayLife();
-
-	if (world[myPlayer->getLoc()]->getDragon()) {
-		myPlayer->reduceLife();
-	}
-
-	cout << "Move " << myPlayer->getName() << " Right again" << endl;
-	myPlayer->moveRight();
-	if (world[myPlayer->getLoc()]->getDragon()) {
-		myPlayer->reduceLife();
-	}
-
-	world[myPlayer->getLoc()]->getDescription();
-	myPlayer->displayLife();
-
 
 	// call a function to get input from a player
 	char action = getAction();

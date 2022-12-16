@@ -13,6 +13,7 @@ public:
 	Room(string description, bool dragon);
 	void getDescription();
 	bool getDragon();
+	void exploreRoom(Player* myPlayer);
 };
 
 //constructor body
@@ -23,9 +24,15 @@ Room::Room(string description, bool dragon) {
 
 //remove this later
 void Room::getDescription() {
-	cout << "Location: " << this->description << "\n";
+	cout << "\nLocation: " << this->description << "\n";
 }
 
 bool Room::getDragon() {
 	return this->dragon;
+}
+void Room::exploreRoom(Player* myPlayer) {
+	if (dragon) {
+		myPlayer->reduceLife();
+	}
+	// somehrere here
 }
