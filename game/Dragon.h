@@ -13,7 +13,8 @@ public:
 
 };
 
-//constructor body
+// constructor body
+// generate dragon's life, decide if you want to bride the dragon or fight.
 Dragon::Dragon(Player* myPlayer, char action) {
 	if (action == 'b') {
 		cout << dye::red("\n\nYou are bribing, dragon wins\n\n");
@@ -39,6 +40,7 @@ Dragon::Dragon(Player* myPlayer, char action) {
 	}
 }
 
+// generate random life for the dragon
 int Dragon::returnRandomNumber() {
 	std::random_device rd; // obtain a random number from hardware
 	std::mt19937 gen(rd()); // seed the generator
@@ -47,6 +49,7 @@ int Dragon::returnRandomNumber() {
 	return distr(gen);
 }
 
+// return the dragon's life
 int Dragon::getDragonLife() {
 	return dragonLife;
 }

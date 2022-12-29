@@ -36,17 +36,20 @@ Player::Player(int numRooms) {
 	location = -1;
 }
 
+// get the player's name
 string Player::getName()
 {
 	return this->name;
 }
 
+// move player left
 void Player::moveLeft() {
 	if (location > 0) {
 		location--;
 	}
 }
 
+// move player to right
 void Player::moveRight() {
 	cout << "Move " << name << " Right" << endl;
 	if (location < numRooms) {
@@ -54,22 +57,27 @@ void Player::moveRight() {
 	}
 }
 
+// return current location of player
 int Player::getLoc() {
 	return location;
 }
 
+// display player's life
 void Player::displayLife() {
 	cout << name << " life is: " << dye::green(startLife) << "\n\n";
 }
 
+// return life of player
 int Player::getLife() {
 	return startLife;
 }
 
+// reduce the life of player
 void Player::reduceLife() {
 	startLife--;
 }
 
+// take action: 1. bribe or fight
 char Player::getAction() {
 	char action{};
 

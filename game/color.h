@@ -11,6 +11,9 @@
 #include <utility>
 #include <windows.h>
 
+// took this from internet, 
+// using it to color code the text in console/terminal
+
 namespace hue
 {
     constexpr int DEFAULT_COLOR = 7;

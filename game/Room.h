@@ -24,17 +24,19 @@ Room::Room(string description, bool dragon) {
 	this->dragon = dragon;
 }
 
-//remove this later
+// get location of the room
 void Room::getDescription() {
 	cout << "\nLocation: " << dye::purple(this->description) << "\n";
 }
 
+// check if there is a dragon in the room
 bool Room::getDragon() {
 	return this->dragon;
 }
+
+// explore room, if there is a dragon in room, reduce the life of player
 void Room::exploreRoom(Player* myPlayer) {
 	if (dragon) {
 		myPlayer->reduceLife();
 	}
-	// somehrere here
 }
