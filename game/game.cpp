@@ -26,10 +26,14 @@ int main()
 	Player* myPlayer;
 	myPlayer = new Player();
 	cout << "Hello and welcome " << myPlayer->getName() << "! \n";
+	cout << "The game objective is to defeat the dragon, You should collect more life before you try to fight the dragon.\n\n";
+	cout << "You can use the arrow keys to move up, down, left, right.\n\n";
 	
 
 	Position* position = new Position();
 
+	// keep taking actions until you fight the dragon. 
+	// you can use the arrow keys to move between rooms. 
 	while (true) {
 		
 		string currentPosition;

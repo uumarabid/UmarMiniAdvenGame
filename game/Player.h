@@ -29,8 +29,6 @@ Player::Player() {
 	cin >> name;
 
 	this->name = name;
-	/*this->numRooms = numRooms;
-	location = -1;*/
 }
 
 // get the player's name

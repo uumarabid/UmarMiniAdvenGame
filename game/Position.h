@@ -34,15 +34,17 @@ Position::Position() {
 	userPosition();
 }
 
+
+// set the position of life(l), treature(t) and dragon(d). 
 void Position::locationSetup() {
-	locationInformation[0][3] = 't';
+	locationInformation[0][3] = 'l';
 	locationInformation[1][5] = 'l';
 	locationInformation[2][0] = 't';
 	locationInformation[2][5] = 'l';
 	locationInformation[5][6] = 'l';
 	locationInformation[3][6] = 'd';
 	locationInformation[4][5] = 'l';
-	locationInformation[4][3] = 't';
+	locationInformation[4][3] = 'l';
 	locationInformation[6][5] = 'l';
 	locationInformation[7][2] = 't';
 }
@@ -67,6 +69,8 @@ char Position::moveDown() {
 		x++;
 	return userPosition();
 }
+
+// display a grid of 8 x 8 rooms
 char Position::userPosition() {
 	try
 	{
@@ -78,10 +82,14 @@ char Position::userPosition() {
 			}
 		}
 		grid[localx][localy] = '*';
+
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
 				if (grid[i][j] == '*') {
 					cout << dye::purple(grid[i][j]) << " ";
+				}
+				else if (i == 3 && j == 6) {
+					cout << dye::red(grid[i][j]) << " ";
 				}
 				else {
 					cout << grid[i][j] << " ";
