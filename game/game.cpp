@@ -26,61 +26,35 @@ int main()
 	Player* myPlayer;
 	myPlayer = new Player();
 	cout << "Hello and welcome " << myPlayer->getName() << "! \n";
-	myPlayer->displayLife();
+	
 
 	Position* position = new Position();
 
 	while (true) {
-		string currentPosition;
-		//cout << "take action: up, down, left, right";
-		int key = _getch();
 		
+		string currentPosition;
+		cout << "\n\n\n";
+		int key = _getch();
+		char insideTheRooms = 'n';
+		myPlayer->displayLife();
 		if (key == 72) {
-			position->moveUp();
+			insideTheRooms = position->moveUp();
 		}
 		else if (key == 80) {
-			position->moveDown();
+			insideTheRooms = position->moveDown();
 		}
 		else if (key == 75) {
-			position->moveLeft();
+			insideTheRooms = position->moveLeft();
 		}
 		else if (key == 77) {
-			position->moveRight();
+			insideTheRooms = position->moveRight();
+		}
+		Room* room = new Room(insideTheRooms);
+		bool gameover = room->exploreRoom(myPlayer);
+		if (gameover) {
+			break;
 		}
 	}
-
-
-
-	///////////////test code
-
-
-
-	//create a pointer to player object
-	//Player* myPlayer;
-
-	////create a dynamic pointer array with pointers to room objects
-	//Room* world[numOfRooms] = {
-	//	new Room("Blue Room", false),
-	//	new Room("Green Room",false),
-	//	new Room("Yellow Room", true),
-	//	new Room("Red Room", false),
-	//	new Room("pink Room", false),
-	//};
-
-	////point myPlayer to new player
-	//myPlayer = new Player(numOfRooms);
-
-	//for (int i = 0; i < numOfRooms; i++) {
-	//	myPlayer->moveRight();
-	//	world[myPlayer->getLoc()]->exploreRoom(myPlayer);
-	//	world[myPlayer->getLoc()]->getDescription();
-	//	myPlayer->displayLife();
-	//}
-
-	//// call a function to get input from a player
-	//char action = myPlayer->getAction();
-	//Dragon* boss = new Dragon(myPlayer, action);
-
 }
 
 // keep looping until we get a b or a f from the player

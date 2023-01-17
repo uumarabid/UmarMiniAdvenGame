@@ -20,10 +20,10 @@ public:
 
 	Position();
 
-	void moveUp();
-	void moveDown();
-	void moveLeft();
-	void moveRight();
+	char moveUp();
+	char moveDown();
+	char moveLeft();
+	char moveRight();
 	char userPosition();
 	void locationSetup();
 };
@@ -47,30 +47,29 @@ void Position::locationSetup() {
 	locationInformation[7][2] = 't';
 }
 
-void Position::moveLeft() {
+char Position::moveLeft() {
 	if (y > 0)
 		y--;
-	userPosition();
+	return userPosition();
 }
-void Position::moveRight() {
+char Position::moveRight() {
 	if (y < 7)
 		y++;
-	userPosition();
+	return userPosition();
 }
-void Position::moveUp() {
+char Position::moveUp() {
 	if (x > 0)
 		x--;
-	userPosition();
+	return userPosition();
 }
-void Position::moveDown() {
+char Position::moveDown() {
 	if (x < 7)
 		x++;
-	userPosition();
+	return userPosition();
 }
 char Position::userPosition() {
 	try
 	{
-		cout << "\n\n" << x << "," << y << "\n\n";
 		int localx = x, localy = y;
 		char grid[8][8];
 		for (int i = 0; i < 8; i++) {
@@ -92,7 +91,9 @@ char Position::userPosition() {
 			cout << endl;
 		}
 		cout << "\n\n";
-		return locationInformation[x][y];
+		char information =  locationInformation[x][y];
+		locationInformation[x][y] = 'n';
+		return information;
 	}
 	catch (const exception&)
 	{
