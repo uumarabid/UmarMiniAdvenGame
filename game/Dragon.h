@@ -18,6 +18,8 @@ public:
 // generate dragon's life, decide if you want to bride the dragon or fight.
 Dragon::Dragon(Player* myPlayer) {
 
+	dragonLife = returnRandomNumber();
+
 	cout << "\nYou are fighting the dragon";
 	cout << "\n\nDragon's life: " << dye::red(getDragonLife());
 
@@ -38,7 +40,7 @@ Dragon::Dragon(Player* myPlayer) {
 int Dragon::returnRandomNumber() {
 	random_device rd; // obtain a random number from hardware
 	mt19937 gen(rd()); // seed the generator
-	uniform_int_distribution<> distr(6, 12); // define the range
+	uniform_int_distribution<> distr(6, 15); // define the range
 
 	return distr(gen);
 }
