@@ -17,21 +17,24 @@ using namespace std;
 const int numOfRooms = 5;
 int main()
 {
+
 	cout << dye::green("Please wait while the game is loading") << "\n\n";
 
 	GameLoading* gameLoading = new GameLoading();
 	gameLoading->Loading();
-	
-	cout << "Hello and welcome!\n";
 
+	Player* myPlayer;
+	myPlayer = new Player();
+	cout << "Hello and welcome " << myPlayer->getName() << "! \n";
+	myPlayer->displayLife();
 
-	//////////////Test code
 	Position* position = new Position();
 
 	while (true) {
 		string currentPosition;
 		//cout << "take action: up, down, left, right";
 		int key = _getch();
+		
 		if (key == 72) {
 			position->moveUp();
 		}
