@@ -130,8 +130,9 @@
     <ClCompile Include="game.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="color.h" />
+    <ClInclude Include="Color.h" />
     <ClInclude Include="Dragon.h" />
+    <ClInclude Include="GameLoading.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Room.h" />
   </ItemGroup>

@@ -3,17 +3,24 @@
 
 #include <iostream>
 #include<string>
-#include "color.h"
 #include "Player.h"
 #include "Dragon.h"
 #include "Room.h"
+#include "Color.h"
+#include "GameLoading.h"
+
+
 using namespace std;
 
 const int numOfRooms = 5;
 int main()
 {
-	cout << "Hello and welcome!\n";
+	cout << dye::green("Please wait while the game is loading") << "\n\n";
 
+	GameLoading* gameLoading = new GameLoading();
+	gameLoading->Loading();
+	
+	cout << "Hello and welcome!\n";
 	//create a pointer to player object
 	Player* myPlayer;
 

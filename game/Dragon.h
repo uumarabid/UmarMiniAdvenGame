@@ -1,7 +1,7 @@
 #pragma once
 
 #include <random>
-#include "color.h"
+#include "Color.h"
 using namespace std;
 
 class Dragon {
