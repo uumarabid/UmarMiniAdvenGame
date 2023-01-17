@@ -2,6 +2,7 @@
 
 #include <random>
 #include "color.h"
+using namespace std;
 
 class Dragon {
 private:
@@ -42,9 +43,9 @@ Dragon::Dragon(Player* myPlayer, char action) {
 
 // generate random life for the dragon
 int Dragon::returnRandomNumber() {
-	std::random_device rd; // obtain a random number from hardware
-	std::mt19937 gen(rd()); // seed the generator
-	std::uniform_int_distribution<> distr(6, 12); // define the range
+	random_device rd; // obtain a random number from hardware
+	mt19937 gen(rd()); // seed the generator
+	uniform_int_distribution<> distr(6, 12); // define the range
 
 	return distr(gen);
 }
