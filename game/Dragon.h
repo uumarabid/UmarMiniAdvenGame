@@ -15,7 +15,7 @@ public:
 };
 
 // constructor body
-// generate dragon's life, decide if you want to bride the dragon or fight.
+// generate dragon's life, and fight with dragon.
 Dragon::Dragon(Player* myPlayer) {
 
 	dragonLife = returnRandomNumber();

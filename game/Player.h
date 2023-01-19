@@ -52,6 +52,7 @@ void Player::reduceLife() {
 	startLife--;
 }
 
+// increase the life of player
 void Player::increaseLife() {
 	startLife++;
 	cout << dye::green("Your life has increased to ") << dye::blue(startLife) << "\n\n";

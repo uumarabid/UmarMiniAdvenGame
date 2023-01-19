@@ -14,7 +14,7 @@
 
 using namespace std;
 
-const int numOfRooms = 5;
+//const int numOfRooms = 5;
 int main()
 {
 
