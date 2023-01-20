@@ -14,7 +14,6 @@
 
 using namespace std;
 
-//const int numOfRooms = 5;
 int main()
 {
 
@@ -26,8 +25,8 @@ int main()
 	Player* myPlayer;
 	myPlayer = new Player();
 	cout << "Hello and welcome " << myPlayer->getName() << "! \n";
-	cout << "The game objective is to defeat the dragon, You should collect more life before you try to fight the dragon.\n\n";
-	cout << "You can use the arrow keys to move up, down, left, right.\n\n";
+	cout << "The game objective is to defeat the dragon, You should collect more lives before you try to fight the dragon.\n\n";
+	cout << "INSTRUCTIONS: You can use the arrow keys to move up, down, left, right.\n\n";
 	
 
 	Position* position = new Position();
@@ -60,9 +59,6 @@ int main()
 		}
 	}
 }
-
-// keep looping until we get a b or a f from the player
-// then return the character
 
 
 

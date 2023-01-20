@@ -40,7 +40,7 @@ Dragon::Dragon(Player* myPlayer) {
 int Dragon::returnRandomNumber() {
 	random_device rd; // obtain a random number from hardware
 	mt19937 gen(rd()); // seed the generator
-	uniform_int_distribution<> distr(6, 15); // define the range
+	uniform_int_distribution<> distr(9, 17); // define the range
 
 	return distr(gen);
 }
