@@ -1,42 +1,42 @@
 #pragma once
 #include <iostream>
 #include<string>
-#include "color.h"
+#include "Color.h"
 
 using namespace std;
 
 // room class
 class Room {
 private:
-	string description;
-	bool dragon;
+	char insideTheRoom;
 public:
 	//constructor
-	Room(string description, bool dragon);
-	void getDescription();
-	bool getDragon();
-	void exploreRoom(Player* myPlayer);
+	Room(char insideTheRoom);
+	bool exploreRoom(Player* myPlayer);
 };
 
 //constructor body
-Room::Room(string description, bool dragon) {
-	this->description = description;
-	this->dragon = dragon;
+Room::Room(char insideTheRoom) {
+	this->insideTheRoom = insideTheRoom;
 }
 
-// get location of the room
-void Room::getDescription() {
-	cout << "\nLocation: " << dye::purple(this->description) << "\n";
-}
 
-// check if there is a dragon in the room
-bool Room::getDragon() {
-	return this->dragon;
-}
+// explore room, you can find a treasure, life or a dragon in the room.
+bool Room::exploreRoom(Player* myPlayer) {
+	bool gameOver = false;
 
-// explore room, if there is a dragon in room, reduce the life of player
-void Room::exploreRoom(Player* myPlayer) {
-	if (dragon) {
-		myPlayer->reduceLife();
+	if (insideTheRoom == 'n') {
+		cout << dye::yellow("There is nothing in the room.") << "\n\n";
 	}
+	else if (insideTheRoom == 't') {
+		cout << dye::blue("You found a treasure.") << "\n\n";
+	}
+	else if (insideTheRoom == 'l') {
+		myPlayer->increaseLife();
+	}
+	else if (insideTheRoom == 'd') {
+		Dragon* boss = new Dragon(myPlayer);
+		gameOver = true;
+	}
+	return gameOver;
 }

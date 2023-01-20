@@ -3,47 +3,62 @@
 
 #include <iostream>
 #include<string>
-#include "color.h"
 #include "Player.h"
 #include "Dragon.h"
 #include "Room.h"
+#include "Color.h"
+#include "GameLoading.h"
+#include <conio.h>
+#include "Position.h"
+
+
 using namespace std;
 
-const int numOfRooms = 5;
 int main()
 {
-	cout << "Hello and welcome!\n";
 
-	//create a pointer to player object
+	cout << dye::green("Please wait while the game is loading") << "\n\n";
+
+	GameLoading* gameLoading = new GameLoading();
+	gameLoading->Loading();
+
 	Player* myPlayer;
+	myPlayer = new Player();
+	cout << "Hello and welcome " << myPlayer->getName() << "! \n";
+	cout << "The game objective is to defeat the dragon, You should collect more lives before you try to fight the dragon.\n\n";
+	cout << "INSTRUCTIONS: You can use the arrow keys to move up, down, left, right.\n\n";
+	
 
-	//create a dynamic pointer array with pointers to room objects
-	Room* world[numOfRooms] = {
-		new Room("Blue Room", false),
-		new Room("Green Room",false),
-		new Room("Yellow Room", true),
-		new Room("Red Room", false),
-		new Room("pink Room", false),
-	};
+	Position* position = new Position();
 
-	//point myPlayer to new player
-	myPlayer = new Player(numOfRooms);
-
-	for (int i = 0; i < numOfRooms; i++) {
-		myPlayer->moveRight();
-		world[myPlayer->getLoc()]->exploreRoom(myPlayer);
-		world[myPlayer->getLoc()]->getDescription();
+	// keep taking actions until you fight the dragon. 
+	// you can use the arrow keys to move between rooms. 
+	while (true) {
+		
+		string currentPosition;
+		cout << "\n\n\n";
+		int key = _getch();
+		char insideTheRooms = 'n';
 		myPlayer->displayLife();
+		if (key == 72) {
+			insideTheRooms = position->moveUp();
+		}
+		else if (key == 80) {
+			insideTheRooms = position->moveDown();
+		}
+		else if (key == 75) {
+			insideTheRooms = position->moveLeft();
+		}
+		else if (key == 77) {
+			insideTheRooms = position->moveRight();
+		}
+		Room* room = new Room(insideTheRooms);
+		bool gameover = room->exploreRoom(myPlayer);
+		if (gameover) {
+			break;
+		}
 	}
-
-	// call a function to get input from a player
-	char action = myPlayer->getAction();
-	Dragon* boss = new Dragon(myPlayer, action);
-
 }
-
-// keep looping until we get a b or a f from the player
-// then return the character
 
 
 
