@@ -84,7 +84,7 @@ char Position::userPosition() {
 				cout << dye::purple(grid[i][j]) << " ";
 			}
 			else if (i == 3 && j == 6) {
-				cout << dye::red(grid[i][j]) << " ";
+				cout << grid[i][j] << " ";
 			}
 			else {
 				cout << grid[i][j] << " ";
